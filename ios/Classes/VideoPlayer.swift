@@ -306,6 +306,7 @@ class VideoPlayer: NSObject, FlutterPlugin, FlutterStreamHandler, FlutterPlatfor
                 let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
                 
                 p.replaceCurrentItem(with: playerItem)
+                p.seek(to: CMTime(seconds: self.position, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
                 
                 /* setup lock screen controls */
                 setupRemoteTransportControls()
